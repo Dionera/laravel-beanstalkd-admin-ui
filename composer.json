@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Sassnowski\\BeanstalkdUI\\": "src"
+            "Sassnowski\\BeanstalkdUI\\": "src/"
         }
     }
 }
