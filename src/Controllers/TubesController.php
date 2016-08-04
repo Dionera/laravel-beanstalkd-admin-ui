@@ -3,8 +3,8 @@
 namespace Sassnowski\BeanstalkdUI\Controllers;
 
 use Illuminate\Routing\Controller;
-use Pheanstalk\Exception\ServerException;
 use Pheanstalk\PheanstalkInterface;
+use Sassnowski\BeanstalkdUI\Repositories\JobRepository;
 
 class TubesController extends Controller
 {
@@ -12,15 +12,21 @@ class TubesController extends Controller
      * @var Pheanstalk
      */
     private $pheanstalk;
+    /**
+     * @var JobRepository
+     */
+    private $jobs;
 
     /**
      * BeanstalkdController constructor.
      *
      * @param PheanstalkInterface $pheanstalk
+     * @param JobRepository       $jobs
      */
-    public function __construct(PheanstalkInterface $pheanstalk)
+    public function __construct(PheanstalkInterface $pheanstalk, JobRepository $jobs)
     {
         $this->pheanstalk = $pheanstalk;
+        $this->jobs = $jobs;
     }
 
     /**
@@ -30,6 +36,7 @@ class TubesController extends Controller
     {
         $tubeNames = collect($this->pheanstalk->listTubes());
 
+        // Adam Wathan give me your strength!
         $tubes = collect($tubeNames)->map(function ($tube) {
             return collect($this->pheanstalk->statsTube($tube))->slice(1)->all();
         })->zip($tubeNames)->flatMap(function ($pair) {
@@ -48,34 +55,14 @@ class TubesController extends Controller
     {
         $stats = $this->pheanstalk->statsTube($tube);
 
-        $nextBuried = null;
-        $nextReady = null;
-        $nextDelayed = null;
-
-        try {
-            $nextReady = $this->pheanstalk->peekReady($tube);
-        } catch (ServerException $e) {
-            //
-        }
-
-        try {
-            $nextBuried = $this->pheanstalk->peekBuried($tube);
-        } catch (ServerException $e) {
-            //
-        }
-
-        try {
-            $nextDelayed = $this->pheanstalk->peekDelayed($tube);
-            $delayedStats = $this->pheanstalk->statsJob($nextDelayed);
-        } catch (ServerException $e) {
-            //
-        }
+        $nextReady = $this->jobs->nextReady($tube, true);
+        $nextBuried = $this->jobs->nextBuried($tube);
+        $nextDelayed = $this->jobs->nextDelayed($tube, true);
 
         return view('beanstalkdui::tubes.show', compact(
             'nextReady',
             'nextBuried',
             'nextDelayed',
-            'delayedStats',
             'stats',
             'tube'
         ));
