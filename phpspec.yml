@@ -1,0 +1,4 @@
+suites:
+  library_suite:
+    namespace: Sassnowski\BeanstalkdUI
+    psr4_prefix: Sassnowski\BeanstalkdUI
