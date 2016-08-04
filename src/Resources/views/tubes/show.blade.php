@@ -105,6 +105,9 @@
                             <dd>
                                 <pre>{{ $nextReady->getData() }}</pre>
                             </dd>
+
+                            <dt>TTR</dt>
+                            <dd>{{ $nextReady->getStat('ttr') }}</dd>
                         </dl>
                     @else
                         <p class="text-muted">
@@ -174,8 +177,11 @@
                                 <pre>{{ $nextDelayed->getData() }}</pre>
                             </dd>
 
+                            <dt>TTR</dt>
+                            <dd>{{ $nextDelayed->getStat('ttr') }}</dd>
+
                             <dt>Time until execution</dt>
-                            <dd>{{ Carbon\Carbon::now()->addSeconds($delayedStats['time-left'])->diffForHumans() }}</dd>
+                            <dd>{{ Carbon\Carbon::now()->addSeconds($nextDelayed->getStat('time-left'))->diffForHumans() }}</dd>
                         </dl>
 
                         <form action="{{ route('beanstalkd.jobs.kick', ['job' => $nextDelayed->getId()]) }}"
