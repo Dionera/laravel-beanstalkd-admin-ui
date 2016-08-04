@@ -5,6 +5,7 @@ namespace Sassnowski\BeanstalkdUI;
 use Illuminate\Support\ServiceProvider;
 use Pheanstalk\Pheanstalk;
 use Pheanstalk\PheanstalkInterface;
+use Sassnowski\BeanstalkdUI\ViewComposers\LayoutComposer;
 
 class BeanstalkdUIServiceProvider extends ServiceProvider
 {
@@ -29,10 +30,21 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/Resources/views', 'beanstalkdui');
 
+        $this->publishAssets();
+        $this->registerViewComposer();
+    }
+
+    private function publishAssets()
+    {
         $this->publishes([
             __DIR__.'/Resources/assets/css' => public_path('vendor/beanstalkdui/css'),
             __DIR__.'/Resources/assets/js' => public_path('vendor/beanstalkdui/js'),
             __DIR__.'/Resources/assets/fonts' => public_path('vendor/beanstalkdui/fonts'),
         ], 'public');
+    }
+
+    private function registerViewComposer()
+    {
+        view()->composer('beanstalkdui::partials.sidenav', LayoutComposer::class);
     }
 }
