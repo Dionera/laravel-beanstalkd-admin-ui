@@ -44,4 +44,24 @@ class JobsController extends Controller
             return redirect()->back();
         }
     }
+
+    /**
+     * @param $job
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function kick($job)
+    {
+        try {
+            $instance = $this->pheanstalk->peek($job);
+
+            $this->pheanstalk->kickJob($instance);
+
+            session()->flash('beanstalkd.success', 'Successfully kicked job into ready state');
+        } catch (ServerException $e) {
+            session()->flash('beanstalkd.error', $e->getMessage());
+        }
+
+        return redirect()->back();
+    }
 }

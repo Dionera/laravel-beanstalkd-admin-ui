@@ -48,32 +48,36 @@ class TubesController extends Controller
     {
         $stats = $this->pheanstalk->statsTube($tube);
 
-        $jobs = [];
+        $nextBuried = null;
+        $nextReady = null;
+        $nextDelayed = null;
 
         try {
             $nextReady = $this->pheanstalk->peekReady($tube);
-
-            $jobs['nextReady'] = [
-                'id' => $nextReady->getId(),
-                'data' => $nextReady->getData(),
-                'status' => 'ready',
-            ];
         } catch (ServerException $e) {
             //
         }
 
         try {
             $nextBuried = $this->pheanstalk->peekBuried($tube);
-
-            $jobs['nextBuried'] = [
-                'id' => $nextBuried->getId(),
-                'data' => $nextBuried->getData(),
-                'status' => 'buried',
-            ];
         } catch (ServerException $e) {
             //
         }
 
-        return view('beanstalkdui::tubes.show', compact('jobs', 'stats', 'tube'));
+        try {
+            $nextDelayed = $this->pheanstalk->peekDelayed($tube);
+            $delayedStats = $this->pheanstalk->statsJob($nextDelayed);
+        } catch (ServerException $e) {
+            //
+        }
+
+        return view('beanstalkdui::tubes.show', compact(
+            'nextReady',
+            'nextBuried',
+            'nextDelayed',
+            'delayedStats',
+            'stats',
+            'tube'
+        ));
     }
 }

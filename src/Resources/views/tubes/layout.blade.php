@@ -64,7 +64,7 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                <i class="fa fa-github"></i> Beanstalkd Admin UI - Github
             </div>
             <div class="clearfix"></div>
         </footer>
