@@ -17,4 +17,17 @@ return [
 
     'port' => '11300',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Route Middleware
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify the route middleware that should be applied the
+    | Admin UI routes. By default we simply require the user to be
+    | logged in. If you have any additional authorization to
+    | perform, this would be the place to specify it.
+    |
+    */
+    'middleware' => ['auth'],
+
 ];

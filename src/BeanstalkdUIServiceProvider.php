@@ -2,6 +2,7 @@
 
 namespace Sassnowski\BeanstalkdUI;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Pheanstalk\Pheanstalk;
 use Pheanstalk\PheanstalkInterface;
@@ -14,6 +15,8 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__.'/Resources/config/beanstalkdui.php', 'beanstalkdui');
+
         $this->app->bind(PheanstalkInterface::class, function () {
             return new Pheanstalk(
                 config('beanstalkdui.host'),
@@ -24,16 +27,27 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
 
     /**
      * Perform post-registration booting of services.
+     *
+     * @param Router $router
      */
-    public function boot()
+    public function boot(Router $router)
     {
-        if (!$this->app->routesAreCached()) {
-            require __DIR__.'/routes.php';
-        }
-
+        $this->publishAssets();
+        $this->registerRoutes($router);
         $this->loadViewsFrom(__DIR__.'/Resources/views', 'beanstalkdui');
         $this->registerViewComposer();
-        $this->publishAssets();
+    }
+
+    /**
+     * @param Router $router
+     */
+    private function registerRoutes(Router $router)
+    {
+        if (!$this->app->routesAreCached()) {
+            $router->group(['middleware' => config('beanstalkdui.middleware')], function ($router) {
+                require __DIR__.'/routes.php';
+            });
+        }
     }
 
     private function publishAssets()
@@ -42,8 +56,11 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
             __DIR__.'/Resources/assets/css' => public_path('vendor/beanstalkdui/css'),
             __DIR__.'/Resources/assets/js' => public_path('vendor/beanstalkdui/js'),
             __DIR__.'/Resources/assets/fonts' => public_path('vendor/beanstalkdui/fonts'),
-            __DIR__.'/Resources/config/beanstalkdui.php' => config_path('beanstalkdui.php'),
         ], 'public');
+
+        $this->publishes([
+            __DIR__.'/Resources/config/beanstalkdui.php' => config_path('beanstalkdui.php'),
+        ], 'config');
     }
 
     private function registerViewComposer()
