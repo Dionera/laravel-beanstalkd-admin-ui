@@ -1,4 +1,4 @@
-@extends('beanstalkdui::tubes.layout')
+@extends('beanstalkdui::layout')
 
 @section('content')
     <div class="row">

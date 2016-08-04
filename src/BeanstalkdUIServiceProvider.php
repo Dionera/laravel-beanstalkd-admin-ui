@@ -2,9 +2,11 @@
 
 namespace Sassnowski\BeanstalkdUI;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Pheanstalk\Pheanstalk;
 use Pheanstalk\PheanstalkInterface;
+use Sassnowski\BeanstalkdUI\ViewComposers\LayoutComposer;
 
 class BeanstalkdUIServiceProvider extends ServiceProvider
 {
@@ -13,26 +15,56 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__.'/Resources/config/beanstalkdui.php', 'beanstalkdui');
+
         $this->app->bind(PheanstalkInterface::class, function () {
-            return new Pheanstalk('127.0.0.1');
+            return new Pheanstalk(
+                config('beanstalkdui.host'),
+                config('beanstalkdui.port')
+            );
         });
     }
 
     /**
      * Perform post-registration booting of services.
+     *
+     * @param Router $router
      */
-    public function boot()
+    public function boot(Router $router)
+    {
+        $this->publishAssets();
+        $this->registerRoutes($router);
+        $this->loadViewsFrom(__DIR__.'/Resources/views', 'beanstalkdui');
+        $this->registerViewComposer();
+    }
+
+    /**
+     * @param Router $router
+     */
+    private function registerRoutes(Router $router)
     {
         if (!$this->app->routesAreCached()) {
-            require __DIR__.'/routes.php';
+            $router->group(['middleware' => config('beanstalkdui.middleware')], function ($router) {
+                require __DIR__.'/routes.php';
+            });
         }
+    }
 
-        $this->loadViewsFrom(__DIR__.'/Resources/views', 'beanstalkdui');
-
+    private function publishAssets()
+    {
         $this->publishes([
             __DIR__.'/Resources/assets/css' => public_path('vendor/beanstalkdui/css'),
             __DIR__.'/Resources/assets/js' => public_path('vendor/beanstalkdui/js'),
             __DIR__.'/Resources/assets/fonts' => public_path('vendor/beanstalkdui/fonts'),
         ], 'public');
+
+        $this->publishes([
+            __DIR__.'/Resources/config/beanstalkdui.php' => config_path('beanstalkdui.php'),
+        ], 'config');
+    }
+
+    private function registerViewComposer()
+    {
+        view()->composer('beanstalkdui::partials.sidenav', LayoutComposer::class);
     }
 }
