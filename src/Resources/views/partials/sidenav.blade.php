@@ -13,15 +13,16 @@
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li><a href="#"><i class="fa fa-server"></i>Server</a></li>
-                    <li><a href="{{ route('beanstalkd.tubes.index') }}"><i class="fa fa-circle-o"></i>Tubes</a></li>
+                    <li><a href="{{ route('beanstalkd.tubes.index') }}"><i class="fa fa-server"></i>Overview</a></li>
+                    <li>
+                        <a><i class="fa fa-circle-o"></i>Tubes <span class="fa fa-chevron-down"></span></a>
 
-                    @foreach ($tubes as $tube)
-                        <li>
-                            <a href="{{ route('beanstalkd.tubes.show', ['tube' => $tube]) }}"><i
-                                        class="fa fa-circle-o"></i> {{ $tube }}</a>
-                        </li>
-                    @endforeach
+                        <ul class="nav child_menu">
+                            @foreach ($tubes as $tube)
+                                <li><a href="{{ route('beanstalkd.tubes.show', compact('tube')) }}">{{ $tube }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
