@@ -1,0 +1,8 @@
+/* Gasp, an ID! */
+#app {
+    transition: opacity 0.8s ease-out;
+}
+
+[v-cloak] {
+    opacity: 0;
+}

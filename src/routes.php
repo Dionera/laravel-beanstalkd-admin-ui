@@ -21,3 +21,8 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'Dionera\BeanstalkdUI\Controllers\JobsController@kick',
     ]);
 });
+
+Route::get('api/tube/{tube}', [
+    'as' => 'beanstalkd.stats',
+    'uses' => 'Dionera\BeanstalkdUI\Controllers\Api\StatsController@statsForTube',
+]);

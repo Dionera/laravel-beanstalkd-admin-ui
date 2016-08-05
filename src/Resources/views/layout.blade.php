@@ -14,6 +14,8 @@
     <link href="{{ asset('vendor/beanstalkdui/css/custom.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/beanstalkdui/css/pnotify.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/beanstalkdui/css/pnotify.buttons.css') }}" rel="stylesheet">
+
+    @yield('styles')
 </head>
 
 <body class="nav-md">
@@ -43,7 +45,9 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                <i class="fa fa-github"></i> Beanstalkd Admin UI - Github
+                <a href="https://github.com/Dionera/laravel-beanstalkd-admin-ui">
+                    <i class="fa fa-github"></i> Beanstalkd Admin UI - Github
+                </a>
             </div>
             <div class="clearfix"></div>
         </footer>
