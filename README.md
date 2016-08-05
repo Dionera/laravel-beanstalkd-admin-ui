@@ -6,6 +6,8 @@
 
 ![](https://raw.githubusercontent.com/ksassnowski/laravel-beanstalkd-admin-ui/master/preview.png)
 
+A slick Admin Interface for managing and monitoring Beanstalkd right out of your Laravel application.
+
 ## Installation
 
 Require the package through composer
