@@ -1,6 +1,6 @@
 <?php
 
-namespace Sassnowski\BeanstalkdUI\Models;
+namespace Dionera\BeanstalkdUI\Models;
 
 use Pheanstalk\Job as PheanstalkJob;
 

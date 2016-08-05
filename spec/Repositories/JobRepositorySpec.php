@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Sassnowski\BeanstalkdUI\Repositories;
+namespace spec\Dionera\BeanstalkdUI\Repositories;
 
 use PhpSpec\ObjectBehavior;
 use Pheanstalk\PheanstalkInterface;
 use Pheanstalk\Job as PheanstalkJob;
-use Sassnowski\BeanstalkdUI\Models\Job;
+use Dionera\BeanstalkdUI\Models\Job;
 use Pheanstalk\Exception\ServerException;
 
 class JobRepositorySpec extends ObjectBehavior

@@ -1,10 +1,10 @@
 <?php
 
-namespace Sassnowski\BeanstalkdUI\Repositories;
+namespace Dionera\BeanstalkdUI\Repositories;
 
 use Pheanstalk\PheanstalkInterface;
 use Pheanstalk\Job as PheanstalkJob;
-use Sassnowski\BeanstalkdUI\Models\Job;
+use Dionera\BeanstalkdUI\Models\Job;
 use Pheanstalk\Exception\ServerException;
 
 class JobRepository

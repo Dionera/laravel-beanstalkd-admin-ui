@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Sassnowski\BeanstalkdUI\Models;
+namespace spec\Dionera\BeanstalkdUI\Models;
 
 use Pheanstalk\Response\ArrayResponse;
 use PhpSpec\ObjectBehavior;
