@@ -6,7 +6,7 @@
 
 ![](https://raw.githubusercontent.com/Dionera/laravel-beanstalkd-admin-ui/master/preview.png)
 
-:fire: A slick Admin Interface for managing and monitoring your Beanstalkd Queues right out of your Laravel application. :fire:
+:fire: A slick Admin Interface for monitoring your Beanstalkd queues right out of your Laravel application. :fire:
 
 ## Installation
 
