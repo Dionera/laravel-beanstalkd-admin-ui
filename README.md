@@ -6,7 +6,7 @@
 
 ![](https://raw.githubusercontent.com/Dionera/laravel-beanstalkd-admin-ui/master/preview.png)
 
-A slick Admin Interface for managing and monitoring Beanstalkd right out of your Laravel application.
+:fire: A slick Admin Interface for managing and monitoring your Beanstalkd Queues right out of your Laravel application. :fire:
 
 ## Installation
 
@@ -21,7 +21,7 @@ Add the following line to your `providers` array in `config/app.php` to register
 ```php
 <?php
 
-// config/app.php
+// inside config/app.php...
 
 'providers' => [
     // cut for brevity
@@ -37,12 +37,12 @@ php artisan vendor:publish --provider="Dionera\BeanstalkdUI\BeanstalkdUIServiceP
 
 This will publish all the required Javascript and CSS into your applications `public/vendor/beanstalkdui` folder.
 
-Now navigate to `beanstalkd/tubes` in your browser. If you're not already authenticated you will now be asked to log in. This is because by
-default all routes use the `auth` middleware. See the `Configuration` section for information about how to overwrite this.
+Now navigate to `http://<your-app>/beanstalkd/tubes` in your browser. If you're not already authenticated you will now be asked to log in. This is because by
+default all routes use the `auth` middleware. See the [Configuration](#configuration) section for information about how to overwrite this.
 
-## Features
+## Live Updating
 
-_This section is still under construction_
+![](https://raw.githubusercontent.com/Dionera/laravel-beanstalkd-admin-ui/master/live_preview.gif)
 
 ## Configuration
 
