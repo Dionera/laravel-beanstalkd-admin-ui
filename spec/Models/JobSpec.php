@@ -40,4 +40,17 @@ class JobSpec extends ObjectBehavior
 
         $this->getStat('age')->shouldBeNull();
     }
+
+    public function it_should_be_jsonable()
+    {
+        $stats = new ArrayResponse('OK', ['foo' => 'bar', 'age' => 100]);
+
+        $this->beConstructedWith(new PheanstalkJob(1, 'data'), $stats);
+
+        $this->toJson()->shouldEqual([
+            'id' => 1,
+            'data' => 'data',
+            'stats' => $stats,
+        ]);
+    }
 }

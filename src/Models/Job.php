@@ -3,8 +3,9 @@
 namespace Dionera\BeanstalkdUI\Models;
 
 use Pheanstalk\Job as PheanstalkJob;
+use Illuminate\Contracts\Support\Jsonable;
 
-class Job
+class Job implements Jsonable
 {
     /**
      * @var PheanstalkJob
@@ -58,5 +59,21 @@ class Job
     public function getStat($name)
     {
         return array_get($this->stats, $name);
+    }
+
+    /**
+     * Convert the object to its JSON representation.
+     *
+     * @param int $options
+     *
+     * @return string
+     */
+    public function toJson($options = 0)
+    {
+        return [
+            'id' => $this->job->getId(),
+            'data' => $this->job->getData(),
+            'stats' => $this->stats,
+        ];
     }
 }
