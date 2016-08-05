@@ -58,4 +58,4 @@ This will place a `beanstalkdui.php` in your application's `config` folder. Insi
 |-------|--------|:---------|
 | `host` | `'127.0.0.1'` | The Beanstalkd host. |
 | `port` | `11300` | The Port Beanstalkd is running on. |
-| `middleware` | `['auth']` | An array of middlewares which get applied to all the package's routes. If no middleware should be applied simply provide `[]`. |
+| `middleware` | `['web', 'auth']` | An array of middlewares which get applied to all the package's routes. If no middleware should be applied simply provide `[]`. |
