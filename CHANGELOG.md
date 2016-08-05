@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.2.0] - 2016-08-06
 ### Added
 - Tubes view now updates in real time
+
 ### Changed
 - Fixed broken table layout
 
