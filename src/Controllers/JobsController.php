@@ -1,6 +1,6 @@
 <?php
 
-namespace Sassnowski\BeanstalkdUI\Controllers;
+namespace Dionera\BeanstalkdUI\Controllers;
 
 use Illuminate\Routing\Controller;
 use Pheanstalk\Exception\ServerException;

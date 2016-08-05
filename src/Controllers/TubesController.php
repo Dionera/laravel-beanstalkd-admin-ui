@@ -1,10 +1,10 @@
 <?php
 
-namespace Sassnowski\BeanstalkdUI\Controllers;
+namespace Dionera\BeanstalkdUI\Controllers;
 
 use Illuminate\Routing\Controller;
 use Pheanstalk\PheanstalkInterface;
-use Sassnowski\BeanstalkdUI\Repositories\JobRepository;
+use Dionera\BeanstalkdUI\Repositories\JobRepository;
 
 class TubesController extends Controller
 {

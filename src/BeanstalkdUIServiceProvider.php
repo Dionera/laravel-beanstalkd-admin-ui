@@ -1,12 +1,12 @@
 <?php
 
-namespace Sassnowski\BeanstalkdUI;
+namespace Dionera\BeanstalkdUI;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Pheanstalk\Pheanstalk;
 use Pheanstalk\PheanstalkInterface;
-use Sassnowski\BeanstalkdUI\ViewComposers\LayoutComposer;
+use Dionera\BeanstalkdUI\ViewComposers\LayoutComposer;
 
 class BeanstalkdUIServiceProvider extends ServiceProvider
 {

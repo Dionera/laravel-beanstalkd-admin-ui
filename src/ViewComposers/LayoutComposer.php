@@ -1,6 +1,6 @@
 <?php
 
-namespace Sassnowski\BeanstalkdUI\ViewComposers;
+namespace Dionera\BeanstalkdUI\ViewComposers;
 
 use Illuminate\View\View;
 use Pheanstalk\PheanstalkInterface;
