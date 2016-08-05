@@ -42,7 +42,7 @@ default all routes use the `auth` middleware. See the [Configuration](#configura
 
 ## Live Updating
 
-![](https://raw.githubusercontent.com/Dionera/laravel-beanstalkd-admin-ui/master/live_preview.gif)
+![](https://raw.githubusercontent.com/Dionera/laravel-beanstalkd-admin-ui/master/live_updating.gif)
 
 ## Configuration
 
