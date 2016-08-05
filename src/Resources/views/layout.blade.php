@@ -14,6 +14,8 @@
     <link href="{{ asset('vendor/beanstalkdui/css/custom.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/beanstalkdui/css/pnotify.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/beanstalkdui/css/pnotify.buttons.css') }}" rel="stylesheet">
+
+    @yield('styles')
 </head>
 
 <body class="nav-md">
@@ -43,7 +45,9 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                <i class="fa fa-github"></i> Beanstalkd Admin UI - Github
+                <a href="https://github.com/Dionera/laravel-beanstalkd-admin-ui">
+                    <i class="fa fa-github"></i> Beanstalkd Admin UI - Github
+                </a>
             </div>
             <div class="clearfix"></div>
         </footer>
@@ -51,10 +55,10 @@
     </div>
 </div>
 
-<script src="{{ asset('vendor/beanstalkdui/js/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/beanstalkdui/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('vendor/beanstalkdui/js/pnotify.js') }}"></script>
-<script src="{{ asset('vendor/beanstalkdui/js/custom.min.js') }}"></script>
+<script src="{{ asset('vendor/beanstalkdui/js/vendor/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/beanstalkdui/js/vendor/bootstrap.min.js') }}"></script>
+<script src="{{ asset('vendor/beanstalkdui/js/vendor/pnotify.js') }}"></script>
+<script src="{{ asset('vendor/beanstalkdui/js/vendor/custom.min.js') }}"></script>
 
 @yield('scripts')
 </body>
