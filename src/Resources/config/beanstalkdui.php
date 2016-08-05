@@ -28,6 +28,6 @@ return [
     | perform, this would be the place to specify it.
     |
     */
-    'middleware' => ['auth'],
+    'middleware' => ['web', 'auth'],
 
 ];
