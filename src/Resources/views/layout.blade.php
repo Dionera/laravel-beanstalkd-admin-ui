@@ -51,10 +51,10 @@
     </div>
 </div>
 
-<script src="{{ asset('vendor/beanstalkdui/js/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/beanstalkdui/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('vendor/beanstalkdui/js/pnotify.js') }}"></script>
-<script src="{{ asset('vendor/beanstalkdui/js/custom.min.js') }}"></script>
+<script src="{{ asset('vendor/beanstalkdui/js/vendor/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/beanstalkdui/js/vendor/bootstrap.min.js') }}"></script>
+<script src="{{ asset('vendor/beanstalkdui/js/vendor/pnotify.js') }}"></script>
+<script src="{{ asset('vendor/beanstalkdui/js/vendor/custom.min.js') }}"></script>
 
 @yield('scripts')
 </body>
