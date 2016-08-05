@@ -42,7 +42,7 @@ default all routes use the `auth` middleware. See the `Configuration` section fo
 
 ## Features
 
-_This sections is still under construction_
+_This section is still under construction_
 
 ## Configuration
 
