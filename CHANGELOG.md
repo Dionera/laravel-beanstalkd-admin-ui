@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.2.2] - 2016-08-07
+### Changed
+- Fix out of date composer dependencies
+
 ## [0.2.1] - 2016-08-06
 ### Changed
 - Added missing Javascript files
@@ -16,6 +20,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.1.1] - 2016-08-05
 ### Changed
 - Add missing `web` middleware to default configuration
+
+[0.2.2] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.2.1...0.2.2
 
 [0.2.1] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.2.0...0.2.1
 
