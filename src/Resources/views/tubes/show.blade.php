@@ -42,34 +42,13 @@
 
 
 @section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
+    <script src="{{ asset('vendor/beanstalkdui/js/vendor/vue.min.js') }}"></script>
+    <script src="{{ asset('vendor/beanstalkdui/js/components/job-action.js') }}"></script>
+    <script src="{{ asset('vendor/beanstalkdui/js/components/tube-stat.js') }}"></script>
+    <script src="{{ asset('vendor/beanstalkdui/js/components/next-job.js') }}"></script>
     <script src="{{ asset('vendor/beanstalkdui/js/app.js') }}"></script>
 
     @if (config('beanstalkdui.failed_jobs'))
         <script src="{{ asset('vendor/beanstalkdui/js/failed-jobs-table.js') }}"></script>
-    @endif
-
-    @if (Session::has('beanstalkd.error'))
-        <script>
-            PNotify.prototype.options.styling = 'fontawesome';
-
-            new PNotify({
-                title: 'Oh no!',
-                type: 'error',
-                text: '{{ Session::get('beanstalkd.error') }}'
-            });
-        </script>
-    @endif
-
-    @if (Session::has('beanstalkd.success'))
-        <script>
-            PNotify.prototype.options.styling = 'fontawesome';
-
-            new PNotify({
-                title: 'Success!',
-                type: 'success',
-                text: '{{ Session::get('beanstalkd.success') }}'
-            });
-        </script>
     @endif
 @stop

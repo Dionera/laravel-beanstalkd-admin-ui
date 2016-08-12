@@ -40,5 +40,19 @@ new Vue({
         setInterval(function () {
             this.fetchData();
         }.bind(this), 2000);
+    },
+
+    events: {
+        'notify': function (payload) {
+            var title = payload.status === 'success'
+                ? 'Success!'
+                : 'Oh no!';
+
+            new PNotify({
+                title: title,
+                type: payload.status,
+                text: payload.message
+            });
+        }
     }
 })
