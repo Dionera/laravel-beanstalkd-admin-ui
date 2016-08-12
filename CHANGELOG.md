@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [UNRELEASED]
+## [0.3.0] - 2016-08-12
 ### Added
 - Added table to manage failed jobs for a queue.
 
