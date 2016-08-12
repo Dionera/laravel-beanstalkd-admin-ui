@@ -69,7 +69,7 @@ class FailedJobsController extends Controller
         // The reason we're using queue:forget here instead of queue:flush is,
         // that we only want to flush the jobs for the current queue. queue:flush
         // would simply empty the entire table.
-        collect($rows)->each(function ($row) {
+        collect($rows)->each(function (stdClass $row) {
             Artisan::call('queue:forget', [
                 'id' => $row->id,
             ]);
