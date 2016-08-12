@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+    <div class="col-lg-2 col-sm-4 col-xs-12 tile_stats_count">
         <div class="tile-stats">
             <div class="icon"><i class="fa fa-eye text-info"></i></div>
             <div class="count">@{{ tubeStats['current-watching'] }}</div>
@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+    <div class="col-lg-2 col-sm-4 col-xs-12 tile_stats_count">
         <div class="tile-stats">
             <div class="icon"><i class="fa fa-check text-info"></i></div>
             <div class="count">
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+    <div class="col-lg-2 col-sm-4 col-xs-12 tile_stats_count">
         <div class="tile-stats">
             <div class="icon"><i class="fa fa-ellipsis-h text-info"></i></div>
             <div class="count">
@@ -30,7 +30,7 @@
         </div>
     </div>
 
-    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+    <div class="col-lg-2 col-sm-4 col-xs-12 tile_stats_count">
         <div class="tile-stats">
             <div class="icon"><i class="fa fa-clock-o text-info"></i></div>
             <div class="count">
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+    <div class="col-lg-2 col-sm-4 col-xs-12 tile_stats_count">
         <div class="tile-stats">
             <div class="icon"><i class="fa fa-area-chart text-info"></i></div>
             <div class="count">
@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+    <div class="col-lg-2 col-sm-4 col-xs-12 tile_stats_count">
         <div class="tile-stats">
             <div class="icon"><i class="fa fa-bar-chart text-info"></i></div>
             <div class="count">
