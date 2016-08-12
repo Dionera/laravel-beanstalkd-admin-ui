@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Added table to manage failed jobs for a queue.
 
+### Changed
+- Turn most of the HTML into Vue components
+
 ## [0.2.2] - 2016-08-07
 ### Changed
 - Fix out of date composer dependencies
