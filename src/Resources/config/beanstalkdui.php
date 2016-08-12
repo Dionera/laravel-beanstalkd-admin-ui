@@ -42,4 +42,6 @@ return [
     */
 
     'failed_jobs' => true,
+
+    'failed_jobs_table' => 'failed_jobs',
 ];
