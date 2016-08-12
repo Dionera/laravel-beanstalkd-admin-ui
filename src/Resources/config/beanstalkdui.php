@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'failed_jobs' => false,
+    'failed_jobs' => true,
 
     'failed_jobs_table' => 'failed_jobs',
 ];
