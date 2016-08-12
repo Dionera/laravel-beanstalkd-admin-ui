@@ -28,6 +28,18 @@ return [
     | perform, this would be the place to specify it.
     |
     */
+
     'middleware' => ['web', 'auth'],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Failed Jobs
+    |--------------------------------------------------------------------------
+    |
+    | If you do not want to be able to manage your failed jobs through
+    | the UI as well, simply change this setting to `false`.
+    |
+    */
+
+    'failed_jobs' => true,
 ];
