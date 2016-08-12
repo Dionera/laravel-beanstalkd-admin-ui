@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui.svg?branch=master)](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f/mini.png)](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f)
 
-![](https://raw.githubusercontent.com/Dionera/laravel-beanstalkd-admin-ui/master/preview.png)
+![](preview.png)
 
 :fire: A slick Admin Interface for monitoring your Beanstalkd queues right out of your Laravel application. :fire:
 

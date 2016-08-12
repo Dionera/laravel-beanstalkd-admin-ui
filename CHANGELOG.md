@@ -32,6 +32,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Add missing `web` middleware to default configuration
 
+[0.3.1] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.0...0.3.1
+
+[0.3.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.2.2...0.3.0
+
 [0.2.2] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.2.1...0.2.2
 
 [0.2.1] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.2.0...0.2.1
