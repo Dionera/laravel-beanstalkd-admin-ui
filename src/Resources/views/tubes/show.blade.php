@@ -2,6 +2,7 @@
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('vendor/beanstalkdui/css/beanstalkdui.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @stop
 
 @section('content')
@@ -76,9 +77,19 @@
         </div>
     </div>
 
+    @if (config('beanstalkdui.failed_jobs'))
+        @include('beanstalkdui::tubes.partials.failed_table')
+    @endif
+@stop
+
+
 @section('scripts')
-    <script src="{{ asset('vendor/beanstalkdui/js/vendor/vue.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
     <script src="{{ asset('vendor/beanstalkdui/js/app.js') }}"></script>
+
+    @if (config('beanstalkdui.failed_jobs'))
+        <script src="{{ asset('vendor/beanstalkdui/js/failed-jobs-table.js') }}"></script>
+    @endif
 
     @if (Session::has('beanstalkd.error'))
         <script>
@@ -103,5 +114,4 @@
             });
         </script>
     @endif
-@stop
 @stop

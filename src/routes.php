@@ -22,12 +22,31 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 });
 
+/*
+ * Api Routes
+ */
+
 Route::get('beanstalkd/api/tubes/{tube}', [
     'as' => 'beanstalkd.stats',
     'uses' => 'Dionera\BeanstalkdUI\Controllers\Api\StatsController@statsForTube',
 ]);
 
+Route::delete('beanstalkd/api/tubes/{tube}/failed', [
+    'as' => 'beanstalkd.flush',
+    'uses' => 'Dionera\BeanstalkdUI\Controllers\Api\FailedJobsController@flush',
+]);
+
 Route::get('beanstalkd/api/tubes/{tube}/failed', [
     'as' => 'beanstalkd.failed',
     'uses' => 'Dionera\BeanstalkdUI\Controllers\Api\FailedJobsController@index',
+]);
+
+Route::post('beanstalkd/api/tubes/{tube}/failed/{failed}', [
+    'as' => 'beanstalkd.retry',
+    'uses' => 'Dionera\BeanstalkdUI\Controllers\Api\FailedJobsController@retry',
+]);
+
+Route::delete('beanstalkd/api/tubes/{tube}/failed/{failed}', [
+    'as' => 'beanstalkd.forget',
+    'uses' => 'Dionera\BeanstalkdUI\Controllers\Api\FailedJobsController@forget',
 ]);
