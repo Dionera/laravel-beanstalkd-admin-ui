@@ -25,7 +25,7 @@ new Vue({
 
     methods: {
         fetchData: function () {
-            $.get('/api/tube/' + this.tube, function (response) {
+            $.get('/beanstalkd/api/tubes/' + this.tube, function (response) {
                 this.tubeStats = response.tubeStats
                 this.nextReady = response.nextReady
                 this.nextBuried = response.nextBuried

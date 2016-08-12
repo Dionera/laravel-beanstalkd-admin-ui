@@ -22,7 +22,12 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 });
 
-Route::get('api/tube/{tube}', [
+Route::get('beanstalkd/api/tubes/{tube}', [
     'as' => 'beanstalkd.stats',
     'uses' => 'Dionera\BeanstalkdUI\Controllers\Api\StatsController@statsForTube',
+]);
+
+Route::get('beanstalkd/api/tubes/{tube}/failed', [
+    'as' => 'beanstalkd.failed',
+    'uses' => 'Dionera\BeanstalkdUI\Controllers\Api\FailedJobsController@index',
 ]);
