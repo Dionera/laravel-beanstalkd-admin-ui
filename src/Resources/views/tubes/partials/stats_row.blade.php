@@ -1,6 +1,6 @@
 <div class="row">
     <tube-stat
-            title="Workers"
+            title="Connections"
             icon="fa fa-eye"
             :value="tubeStats['current-watching']"
             subtitle="Watching this tube">
@@ -10,14 +10,14 @@
             title="Jobs Ready"
             icon="fa fa-check"
             :value="tubeStats['current-jobs-ready']"
-            subtitle="Will be worked shortly">
+            subtitle="Currently in the queue">
     </tube-stat>
 
     <tube-stat
             title="Reserved Jobs"
             icon="fa fa-ellipsis-h"
             :value="tubeStats['current-jobs-reserved']"
-            subtitle="Currently in the queue">
+            subtitle="Have been reserved by a worker">
     </tube-stat>
 
     <tube-stat

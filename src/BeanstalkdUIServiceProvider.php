@@ -2,10 +2,10 @@
 
 namespace Dionera\BeanstalkdUI;
 
-use Illuminate\Routing\Router;
-use Illuminate\Support\ServiceProvider;
 use Pheanstalk\Pheanstalk;
+use Illuminate\Routing\Router;
 use Pheanstalk\PheanstalkInterface;
+use Illuminate\Support\ServiceProvider;
 use Dionera\BeanstalkdUI\ViewComposers\LayoutComposer;
 
 class BeanstalkdUIServiceProvider extends ServiceProvider
