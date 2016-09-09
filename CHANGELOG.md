@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.3] - 2016-09-09
+### Changed
+- Moved actions column in failed jobs table to the left
+- Added `current-watching` stat to overview table
+
 ## [0.3.2] - 2016-08-15
 ### Changed
 - Use more precise descriptions in the stat descriptions according to the [Beanstalkd Protocol](https://raw.githubusercontent.com/kr/beanstalkd/master/doc/protocol.txt).
@@ -35,6 +40,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.1.1] - 2016-08-05
 ### Changed
 - Add missing `web` middleware to default configuration
+
+[0.3.3] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.2...0.3.3
 
 [0.3.2] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.1...0.3.2
 
