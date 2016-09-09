@@ -23,21 +23,17 @@
                     <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Actions</th>
                         <th>Connection</th>
                         <th>Queue</th>
                         <th>Payload</th>
                         <th>Failed At</th>
-                        <th>Actions</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     <tr v-for="job in jobs">
                         <td>@{{ job.id }}</td>
-                        <td>@{{ job.connection }}</td>
-                        <td>@{{ job.queue }}</td>
-                        <td>@{{ job.payload }}</td>
-                        <td>@{{ job.failed_at }}</td>
                         <td>
                             <a href="#" v-on:click="forget(job.id, $event)" class="btn btn-xs btn-danger">
                                 <i class="fa fa-trash"></i> Forget
@@ -47,6 +43,10 @@
                                 <i class="fa fa-refresh"></i> Retry
                             </a>
                         </td>
+                        <td>@{{ job.connection }}</td>
+                        <td>@{{ job.queue }}</td>
+                        <td>@{{ job.payload }}</td>
+                        <td>@{{ job.failed_at }}</td>
                     </tr>
                     </tbody>
                 </table>
