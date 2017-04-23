@@ -3,8 +3,10 @@
 [![Code Climate](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui/badges/gpa.svg)](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui)
 [![Build Status](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui.svg?branch=master)](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f/mini.png)](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f)
+[![Current Version](https://img.shields.io/badge/version-0.3.3-blue.svg)](https://img.shields.io/badge/version-0.3.2-blue.svg)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
-![](https://raw.githubusercontent.com/Dionera/laravel-beanstalkd-admin-ui/master/preview.png)
+![](preview.png)
 
 :fire: A slick Admin Interface for monitoring your Beanstalkd queues right out of your Laravel application. :fire:
 
@@ -58,4 +60,6 @@ This will place a `beanstalkdui.php` in your application's `config` folder. Insi
 |-------|--------|:---------|
 | `host` | `'127.0.0.1'` | The Beanstalkd host. |
 | `port` | `11300` | The Port Beanstalkd is running on. |
-| `middleware` | `['web', 'auth']` | An array of middlewares which get applied to all the package's routes. If no middleware should be applied simply provide `[]`. |
+| `middleware` | `['web', 'auth']` | An array of middlewares which get applied to all the package's routes. If no middleware should be applied simply remove `auth` from the array. |
+| `failed_jobs` | `true` | Defines if you want to be able to also manage your failed jobs through the UI. If set to `true` an additional table containing all failed jobs for the current tube will be displayed. |
+| `failed_jobs_table` | `failed_jobs` | The name of the table containing your failed jobs. |

@@ -1,10 +1,10 @@
 <?php
 
-namespace Dionera\BeanstalkdUI\Controllers;
+namespace Dionera\BeanstalkdUI\Controllers\Api;
 
 use Illuminate\Routing\Controller;
-use Pheanstalk\Exception\ServerException;
 use Pheanstalk\PheanstalkInterface;
+use Pheanstalk\Exception\ServerException;
 
 class JobsController extends Controller
 {
@@ -24,9 +24,9 @@ class JobsController extends Controller
     }
 
     /**
-     * @param int $job
+     * @param $job
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function delete($job)
     {
@@ -35,13 +35,15 @@ class JobsController extends Controller
 
             $this->pheanstalk->delete($instance);
 
-            session()->flash('beanstalkd.success', 'Successfully deleted Job');
-
-            return redirect()->back();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Successfully deleted Job',
+            ]);
         } catch (ServerException $e) {
-            session()->flash('beanstalkd.error', $e->getMessage());
-
-            return redirect()->back();
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ]);
         }
     }
 
@@ -57,11 +59,15 @@ class JobsController extends Controller
 
             $this->pheanstalk->kickJob($instance);
 
-            session()->flash('beanstalkd.success', 'Successfully kicked job into ready state');
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Successfully kicked job into ready state.',
+            ]);
         } catch (ServerException $e) {
-            session()->flash('beanstalkd.error', $e->getMessage());
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ]);
         }
-
-        return redirect()->back();
     }
 }
