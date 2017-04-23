@@ -39,6 +39,21 @@ php artisan vendor:publish --provider="Dionera\BeanstalkdUI\BeanstalkdUIServiceP
 
 This will publish all the required Javascript and CSS into your applications `public/vendor/beanstalkdui` folder.
 
+### Laravel 5.1
+
+This packages by default assumes that you are at least using Laravel 5.2. Nevertheless, it is still fully compatible with Laravel 5.1.
+If you are Laravel 5.1 there is simple one additional adjustment to make.
+
+First publish the config file by executing the following artisan command
+
+```
+php artisan vendor:publish --provider="Dionera\BeanstalkdUI\BeanstalkdUIServiceProvider" --tag="config"
+```
+
+Now open `config/beanstalkdui.php` and remove the `web` entry from the `middleware` array. That's it. You're all good to go!
+
+### View it in the browser
+
 Now navigate to `http://<your-app>/beanstalkd/tubes` in your browser. If you're not already authenticated you will now be asked to log in. This is because by
 default all routes use the `auth` middleware. See the [Configuration](#configuration) section for information about how to overwrite this.
 
