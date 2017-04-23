@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.4] - 2017-04-23
+### Changed
+- Removed middleware groups from `routes` file. Now these can actually be overwritten using the config .
+
 ## [0.3.3] - 2016-09-09
 ### Changed
 - Moved actions column in failed jobs table to the left
@@ -40,6 +44,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.1.1] - 2016-08-05
 ### Changed
 - Add missing `web` middleware to default configuration
+
+[0.3.4] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.3...0.3.4
 
 [0.3.3] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.2...0.3.3
 
