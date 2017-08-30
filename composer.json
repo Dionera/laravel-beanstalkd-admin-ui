@@ -20,12 +20,5 @@
         "psr-4": {
             "Dionera\\BeanstalkdUI\\": "src/"
         }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Dionera\\BeanstalkdUI\\BeanstalkdUIServiceProvider"
-            ]
-        }
     }
 }
