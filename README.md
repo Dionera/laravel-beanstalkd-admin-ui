@@ -18,6 +18,7 @@ Require the package through composer
 composer require dionera/laravel-beanstalkd-ui
 ```
 
+### Register the service provider (Laravel < 5.5)
 Add the following line to your `providers` array in `config/app.php` to register the service provider into your application.
 
 ```php
@@ -30,6 +31,8 @@ Add the following line to your `providers` array in `config/app.php` to register
     Dionera\BeanstalkdUI\BeanstalkdUIServiceProvider::class,
 ]
 ```
+
+### Publish assets
 
 Next we need to publish the package's assets. We do this by running the following command:
 
