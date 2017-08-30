@@ -2,9 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.4.0] - 2017-08-30
+## [1.0.0] - 2017-08-30
 ### Added
 - Add support for Laravel 5.5 package auto discovery.
+
+### Changed
+- Require PHP 7 or higher
 
 ## [0.3.4] - 2017-04-23
 ### Changed
