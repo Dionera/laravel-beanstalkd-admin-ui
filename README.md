@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui/badges/gpa.svg)](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui)
 [![Build Status](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui.svg?branch=master)](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f/mini.png)](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f)
-[![Current Version](https://img.shields.io/badge/version-0.3.4-blue.svg)](https://img.shields.io/badge/version-0.4.0-blue.svg)
+[![Current Version](https://img.shields.io/badge/version-0.3.4-blue.svg)](https://img.shields.io/badge/version-0.3.4-blue.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![](preview.png)
@@ -18,7 +18,6 @@ Require the package through composer
 composer require dionera/laravel-beanstalkd-ui
 ```
 
-### Register the service provider (Laravel < 5.5)
 Add the following line to your `providers` array in `config/app.php` to register the service provider into your application.
 
 ```php
@@ -31,8 +30,6 @@ Add the following line to your `providers` array in `config/app.php` to register
     Dionera\BeanstalkdUI\BeanstalkdUIServiceProvider::class,
 ]
 ```
-
-### Publish assets
 
 Next we need to publish the package's assets. We do this by running the following command:
 
