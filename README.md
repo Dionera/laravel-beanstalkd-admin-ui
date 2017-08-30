@@ -35,7 +35,7 @@ default all routes use the `auth` middleware. See the [Configuration](#configura
 
 ## Older versions of PHP and Laravel
 
-If your not on PHP 7 or Laravel 5.5 yet, please check out the [legacy branch](https://github.com/Dionera/laravel-beanstalkd-admin-ui/tree/php5). No new features will be added
+If you're not on PHP 7 or Laravel 5.5 yet, please check out the [legacy branch](https://github.com/Dionera/laravel-beanstalkd-admin-ui/tree/php5). No new features will be added
 to this branch. Bugfixes will still get backported.
 
 ## Live Updating
