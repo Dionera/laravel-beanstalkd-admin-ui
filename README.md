@@ -15,7 +15,7 @@
 Require the package through composer
 
 ```
-composer require dionera/laravel-beanstalkd-ui
+composer require "dionera/laravel-beanstalkd-ui:~0.3.0"
 ```
 
 Add the following line to your `providers` array in `config/app.php` to register the service provider into your application.
