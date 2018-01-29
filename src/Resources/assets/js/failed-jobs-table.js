@@ -9,12 +9,21 @@ new Vue({
         tube: {
             type: String,
             required: true
+        },
+        prefix: {
+            type: String,
+            default:''
         }
     },
 
     methods: {
+        prefixUrl: function (url){
+            return this.prefix.length > 0
+                ? '/' + this.prefix + url
+                : url
+        },
         refresh: function (notify) {
-            $.get('/beanstalkd/api/tubes/' + this.tube + '/failed', function (response) {
+            $.get(this.prefixUrl('/beanstalkd/api/tubes/' + this.tube + '/failed'), function (response) {
                 this.jobs = response;
             }.bind(this));
 
@@ -28,7 +37,7 @@ new Vue({
             $(event.target).prop('disabled', true);
 
             $.ajax({
-                url: '/beanstalkd/api/tubes/' + this.tube + '/failed/' + id,
+                url: this.prefixUrl('/beanstalkd/api/tubes/' + this.tube + '/failed/' + id),
                 type: 'DELETE',
                 success: function () {
                     this.jobs = this.jobs.filter(function (job) {
@@ -44,7 +53,7 @@ new Vue({
             event.preventDefault();
             $(event.target).prop('disabled', true);
 
-            $.post('/beanstalkd/api/tubes/' + this.tube + '/failed/' + id, function (response) {
+            $.post(this.prefixUrl('/beanstalkd/api/tubes/' + this.tube + '/failed/' + id), function (response) {
                 this.jobs = this.jobs.filter(function (job) {
                     return job.id != id;
                 });
@@ -58,7 +67,7 @@ new Vue({
             $(event.target).prop('disabled', true);
 
             $.ajax({
-                url: '/beanstalkd/api/tubes/' + this.tube + '/failed',
+                url: this.prefixUrl('/beanstalkd/api/tubes/' + this.tube + '/failed'),
                 type: 'DELETE',
                 success: function () {
                     this.jobs = [];

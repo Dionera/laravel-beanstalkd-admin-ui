@@ -8,12 +8,17 @@ var JobAction = Vue.extend({
         </div>\
     ',
 
-    props: ['url', 'button', 'icon', 'button-text', 'method', 'job'],
+    props: ['url', 'button', 'icon', 'button-text', 'method', 'job', 'prefix'],
 
     methods: {
+        prefixUrl: function (url){
+            return this.prefix.length > 0
+                ? '/' + this.prefix + url
+                : url
+        },
         fire: function () {
             $.ajax({
-                url: this.url + this.job.id,
+                url: this.prefixUrl(this.url + this.job.id),
                 type: this.method,
                 success: function (response) {
                     this.$dispatch('notify', response);

@@ -6,6 +6,7 @@
 
     <job-action url="/beanstalkd/api/jobs/"
                 method="POST"
+                prefix="{{ $prefix }}"
                 button="btn-success btn-sm"
                 icon="fa fa-hand-o-up"
                 button-text="Kick Job"

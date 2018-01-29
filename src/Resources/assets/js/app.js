@@ -20,12 +20,21 @@ new Vue({
         tube: {
             type: String,
             required: true
+        },
+        prefix: {
+            type: String,
+            default:''
         }
     },
 
     methods: {
+        prefixUrl: function (url){
+            return this.prefix.length > 0
+                ? '/' + this.prefix + url
+                : url
+        },
         fetchData: function () {
-            $.get('/beanstalkd/api/tubes/' + this.tube, function (response) {
+            $.get(this.prefixUrl('/beanstalkd/api/tubes/' + this.tube), function (response) {
                 this.tubeStats = response.tubeStats
                 this.nextReady = response.nextReady
                 this.nextBuried = response.nextBuried

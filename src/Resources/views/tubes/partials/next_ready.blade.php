@@ -5,6 +5,7 @@
     </div>
 
     <job-action url="/beanstalkd/api/jobs/"
+                prefix="{{ $prefix }}"
                 method="DELETE"
                 button="btn-danger btn-sm"
                 button-text="Delete Job"
