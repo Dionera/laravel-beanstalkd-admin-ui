@@ -58,13 +58,15 @@ class TubesController extends Controller
         $nextReady = $this->jobs->nextReady($tube, true);
         $nextBuried = $this->jobs->nextBuried($tube);
         $nextDelayed = $this->jobs->nextDelayed($tube, true);
+        $prefix = config('beanstalkdui.prefix');
 
         return view('beanstalkdui::tubes.show', compact(
             'nextReady',
             'nextBuried',
             'nextDelayed',
             'stats',
-            'tube'
+            'tube',
+            'prefix'
         ));
     }
 }
