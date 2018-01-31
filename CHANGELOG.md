@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.0] - 2018-01-31
+### Added
+- Added configuration option to prefix ui route with a custom prefix.
+
 ## [1.0.0] - 2017-08-30
 ### Added
 - Add support for Laravel 5.5 package auto discovery.
