@@ -44,7 +44,10 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
     private function registerRoutes(Router $router)
     {
         if (!$this->app->routesAreCached()) {
-            $router->group(['middleware' => config('beanstalkdui.middleware')], function ($router) {
+            $router->group([
+                'middleware' => config('beanstalkdui.middleware'),
+                'prefix' => config('beanstalkdui.prefix')
+            ], function ($router) {
                 require __DIR__.'/routes.php';
             });
         }

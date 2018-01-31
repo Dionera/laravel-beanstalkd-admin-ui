@@ -57,5 +57,6 @@ This will place a `beanstalkdui.php` in your application's `config` folder. Insi
 | `host` | `'127.0.0.1'` | The Beanstalkd host. |
 | `port` | `11300` | The Port Beanstalkd is running on. |
 | `middleware` | `['web', 'auth']` | An array of middlewares which get applied to all the package's routes. If no middleware should be applied simply remove `auth` from the array. |
+| `prefix` | '' | Route prefix that should be applied the Admin UI routes. |
 | `failed_jobs` | `true` | Defines if you want to be able to also manage your failed jobs through the UI. If set to `true` an additional table containing all failed jobs for the current tube will be displayed. |
 | `failed_jobs_table` | `failed_jobs` | The name of the table containing your failed jobs. |

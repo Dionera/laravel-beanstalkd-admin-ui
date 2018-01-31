@@ -1,5 +1,5 @@
 <hr>
-<div class="row" id="failed-jobs" tube="{{ $tube }}" v-cloak>
+<div class="row" id="failed-jobs" tube="{{ $tube }}" prefix="{{ $prefix }}" v-cloak>
     <div class="col-xs-12">
         <div class="x_panel">
             <div class="x_title">

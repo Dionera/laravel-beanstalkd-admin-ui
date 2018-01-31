@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <div id="app" tube="{{ $tube }}" v-cloak>
+    <div id="app" tube="{{ $tube }}" prefix="{{ $prefix }}" v-cloak>
         <div class="row">
             <div class="col-lg-12">
                 <h2>Overview</h2>
