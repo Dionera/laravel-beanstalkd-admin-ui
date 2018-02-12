@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^7.0",
-        "laravel/framework": "~5.5.0",
+        "laravel/framework": "~5.5",
         "pda/pheanstalk": "~3.0"
     },
     "require-dev": {
