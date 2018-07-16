@@ -27,6 +27,7 @@
                         <th>Connection</th>
                         <th>Queue</th>
                         <th>Payload</th>
+                        <th>Exception</th>
                         <th>Failed At</th>
                     </tr>
                     </thead>
@@ -46,6 +47,7 @@
                         <td>@{{ job.connection }}</td>
                         <td>@{{ job.queue }}</td>
                         <td>@{{ job.payload }}</td>
+                        <td>@{{ job.exception }}</td>
                         <td>@{{ job.failed_at }}</td>
                     </tr>
                     </tbody>
