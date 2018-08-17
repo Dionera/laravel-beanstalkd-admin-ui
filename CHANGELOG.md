@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.3.1] - 2018-08-17
+### Added
+- Catch exception when tube not found for ``beanstalkd/api/tubes/{tube}`` and ``beanstalkd/tubes/{tube}``.
+
 ## [1.3.0] - 2018-07-17
 ### Added
 - Added extra column to failed jobs table containing the exception. (#11)
