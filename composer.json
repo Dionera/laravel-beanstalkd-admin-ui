@@ -1,16 +1,15 @@
 {
-    "name": "dionera/laravel-beanstalkd-ui",
+    "name": "lanffy/laravel-beanstalkd-ui",
     "description": "An Admin UI for Beanstalkd and Laravel",
     "license": "MIT",
     "authors": [
         {
-            "name": "Kai Sassnowski",
-            "email": "ksassnowski@gmail.com"
+            "name": "Lanffy",
+            "email": "rlanffy@gmail.com"
         }
     ],
     "require": {
         "php": "^7.0",
-        "laravel/framework": "~5.5",
         "pda/pheanstalk": "~3.0"
     },
     "require-dev": {

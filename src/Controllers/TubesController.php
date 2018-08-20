@@ -53,7 +53,11 @@ class TubesController extends Controller
      */
     public function showTube($tube)
     {
-        $stats = $this->pheanstalk->statsTube($tube);
+        try {
+            $stats = $this->pheanstalk->statsTube($tube);
+        } catch (\Exception $e) {
+            return json_encode(['message' => $e->getMessage(), 'tube name:' => $tube]);
+        }
 
         $nextReady = $this->jobs->nextReady($tube, true);
         $nextBuried = $this->jobs->nextBuried($tube);
