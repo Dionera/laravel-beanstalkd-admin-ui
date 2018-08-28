@@ -35,7 +35,6 @@ class TubesController extends Controller
     public function index()
     {
         $tubeNames = collect($this->pheanstalk->listTubes());
-
         // Adam Wathan give me your strength!
         $tubes = collect($tubeNames)->map(function ($tube) {
             return collect($this->pheanstalk->statsTube($tube))->slice(1)->all();
@@ -58,7 +57,7 @@ class TubesController extends Controller
         $nextReady = $this->jobs->nextReady($tube, true);
         $nextBuried = $this->jobs->nextBuried($tube);
         $nextDelayed = $this->jobs->nextDelayed($tube, true);
-        $prefix = config('beanstalkdui.prefix');
+        $prefix = url()->to('/'.config('beanstalkdui.prefix'));
 
         return view('beanstalkdui::tubes.show', compact(
             'nextReady',
