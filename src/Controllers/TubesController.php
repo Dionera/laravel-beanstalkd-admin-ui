@@ -35,6 +35,7 @@ class TubesController extends Controller
     public function index()
     {
         $tubeNames = collect($this->pheanstalk->listTubes());
+        
         // Adam Wathan give me your strength!
         $tubes = collect($tubeNames)->map(function ($tube) {
             return collect($this->pheanstalk->statsTube($tube))->slice(1)->all();
