@@ -34,7 +34,10 @@ class TubesController extends Controller
      */
     public function index()
     {
-        $tubeNames = collect($this->pheanstalk->listTubes());
+        $tubeNames = $this->pheanstalk->listTubes();
+        
+        // its better if tubes sorted by alphabet so we can find them faster
+        sort($tubeNames);
 
         // Adam Wathan give me your strength!
         $tubes = collect($tubeNames)->map(function ($tube) {
