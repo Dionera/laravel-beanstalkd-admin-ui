@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace spec\Dionera\BeanstalkdUI\Repositories;
 
 use PhpSpec\ObjectBehavior;
-use Pheanstalk\Job as PheanstalkJob;
 use Dionera\BeanstalkdUI\Models\Job;
-use Pheanstalk\Exception\ServerException;
+use Pheanstalk\Job as PheanstalkJob;
+use Pheanstalk\Response\ArrayResponse;
 use Pheanstalk\Contract\PheanstalkInterface;
 
 class JobRepositorySpec extends ObjectBehavior
@@ -26,7 +26,7 @@ class JobRepositorySpec extends ObjectBehavior
 
     public function it_returns_null_if_no_ready_job_exists(PheanstalkInterface $pheanstalk)
     {
-        $pheanstalk->peekReady('default')->willThrow(ServerException::class);
+        $pheanstalk->peekReady('default')->willReturn(null);
 
         $this->nextReady('default')->shouldBeNull();
     }
@@ -42,7 +42,7 @@ class JobRepositorySpec extends ObjectBehavior
 
     public function it_returns_null_if_no_delayed_job_exists(PheanstalkInterface $pheanstalk)
     {
-        $pheanstalk->peekDelayed('default')->willThrow(ServerException::class);
+        $pheanstalk->peekDelayed('default')->willReturn(null);
 
         $this->nextDelayed('default')->shouldBeNull();
     }
@@ -50,6 +50,7 @@ class JobRepositorySpec extends ObjectBehavior
     public function it_fetches_the_stats_for_a_job(PheanstalkInterface $pheanstalk)
     {
         $job = new PheanstalkJob(1, 'foo');
+        $pheanstalk->statsJob($job)->willReturn(new ArrayResponse('::name::', []));
 
         $this->getStats($job);
 
@@ -61,8 +62,7 @@ class JobRepositorySpec extends ObjectBehavior
         $job = new PheanstalkJob(1, 'foo');
         $pheanstalk->peekReady('default')->willReturn($job);
 
-        $stats = new \stdClass();
-        $stats->age = 100;
+        $stats = new ArrayResponse('::name::', []);
         $pheanstalk->statsJob($job)->willReturn($stats);
 
         $this->nextReady('default', true)->shouldBeLike(new Job($job, $stats));
