@@ -29,7 +29,7 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function delete($job)
+    public function delete(int $job)
     {
         try {
             $instance = $this->pheanstalk->peek(new JobId($job));
@@ -53,7 +53,7 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function kick($job)
+    public function kick(int $job)
     {
         try {
             $instance = $this->pheanstalk->peek(new JobId($job));

@@ -1,21 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Dionera\BeanstalkdUI\Controllers\Api;
 
 use DB;
 use Artisan;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 
 class FailedJobsController extends Controller
 {
-    /**
-     * Returns a listing of all failed jobs for a tube.
-     *
-     * @param $tube
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function index($tube)
+    public function index(string $tube): JsonResponse
     {
         $jobs = DB::table(config('beanstalkdui.failed_jobs_table'))
             ->where('queue', $tube)
@@ -24,13 +18,7 @@ class FailedJobsController extends Controller
         return response()->json($jobs);
     }
 
-    /**
-     * @param string $tube
-     * @param int    $failed
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function forget($tube, $failed)
+    public function forget(string $tube, int $failed): JsonResponse
     {
         Artisan::call('queue:forget', [
             'id' => $failed,
@@ -39,13 +27,7 @@ class FailedJobsController extends Controller
         return response()->json(['status' => 'ok']);
     }
 
-    /**
-     * @param $tube
-     * @param $failed
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function retry($tube, $failed)
+    public function retry(string $tube, int $failed): JsonResponse
     {
         Artisan::call('queue:retry', [
             'id' => [$failed],
@@ -54,12 +36,7 @@ class FailedJobsController extends Controller
         return response()->json(['status' => 'ok']);
     }
 
-    /**
-     * @param $tube
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function flush($tube)
+    public function flush(string $tube): JsonResponse
     {
         $rows = DB::table(config('beanstalkdui.failed_jobs_table'))
             ->select('id')

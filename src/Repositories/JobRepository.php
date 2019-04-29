@@ -5,84 +5,40 @@ namespace Dionera\BeanstalkdUI\Repositories;
 use Dionera\BeanstalkdUI\Models\Job;
 use Pheanstalk\Job as PheanstalkJob;
 use Pheanstalk\Exception\ServerException;
+use Pheanstalk\Contract\ResponseInterface;
 use Pheanstalk\Contract\PheanstalkInterface;
 
 class JobRepository
 {
-    /**
-     * @var PheanstalkInterface
-     */
+    /** @var PheanstalkInterface */
     private $pheanstalk;
 
-    /**
-     * JobRepository constructor.
-     *
-     * @param PheanstalkInterface $pheanstalk
-     */
     public function __construct(PheanstalkInterface $pheanstalk)
     {
         $this->pheanstalk = $pheanstalk;
     }
 
-    /**
-     * Fetches the next job with a `ready` state.
-     *
-     * @param string $tube
-     * @param bool   $withStats
-     *
-     * @return null|Job Returns null if no Job with a `ready` state exists.
-     */
-    public function nextReady($tube, $withStats = false)
+    public function nextReady(string $tube, bool $withStats = false): ?Job
     {
         return $this->next(PheanstalkJob::STATUS_READY, $tube, $withStats);
     }
 
-    /**
-     * Returns the next delayed job from the tube.
-     *
-     * @param string $tube
-     * @param bool   $withStats
-     *
-     * @return null|Job Returns null if no delayed jobs exist.
-     */
-    public function nextDelayed($tube, $withStats = false)
+    public function nextDelayed(string $tube, bool $withStats = false): ?Job
     {
         return $this->next(PheanstalkJob::STATUS_DELAYED, $tube, $withStats);
     }
 
-    /**
-     * Returns the next buried job from the tube.
-     *
-     * @param string $tube
-     * @param bool   $withStats
-     *
-     * @return null|Job Returns null if no buried jobs exist.
-     */
-    public function nextBuried($tube, $withStats = false)
+    public function nextBuried(string $tube, bool $withStats = false): ?Job
     {
         return $this->next(PheanstalkJob::STATUS_BURIED, $tube, $withStats);
     }
 
-    /**
-     * @param PheanstalkJob $instance
-     *
-     * @return object
-     */
-    public function getStats(PheanstalkJob $instance)
+    public function getStats(PheanstalkJob $instance): ResponseInterface
     {
         return $this->pheanstalk->statsJob($instance);
     }
 
-    /**
-     * Returns the next job of a given type from the tube.
-     *
-     * @param string $type
-     * @param string $tube
-     * @param bool   $withStats
-     *
-     * @return Job|null Returns null if no job of the given type exists.
-     */
-    private function next($type, $tube, $withStats = false)
+    private function next(string $type, string $tube, bool $withStats = false): ?Job
     {
         try {
             $method = 'peek' . ucfirst($type);

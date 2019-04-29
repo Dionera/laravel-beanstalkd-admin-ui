@@ -1,9 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Dionera\BeanstalkdUI\Controllers\Api;
 
 use Illuminate\Routing\Controller;
 use Pheanstalk\Contract\PheanstalkInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Dionera\BeanstalkdUI\Repositories\JobRepository;
 
 class StatsController extends Controller
@@ -17,24 +18,13 @@ class StatsController extends Controller
      */
     private $pheanstalk;
 
-    /**
-     * StatsController constructor.
-     *
-     * @param PheanstalkInterface $pheanstalk
-     * @param JobRepository       $jobs
-     */
     public function __construct(PheanstalkInterface $pheanstalk, JobRepository $jobs)
     {
         $this->jobs = $jobs;
         $this->pheanstalk = $pheanstalk;
     }
 
-    /**
-     * @param $tube
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function statsForTube($tube)
+    public function statsForTube(string $tube): JsonResponse
     {
         $tubeStats = $this->pheanstalk->statsTube($tube);
 
