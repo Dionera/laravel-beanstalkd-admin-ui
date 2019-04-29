@@ -3,7 +3,7 @@
 namespace Dionera\BeanstalkdUI\ViewComposers;
 
 use Illuminate\View\View;
-use Pheanstalk\PheanstalkInterface;
+use Pheanstalk\Contract\PheanstalkInterface;
 
 class LayoutComposer
 {

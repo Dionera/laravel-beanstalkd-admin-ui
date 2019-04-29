@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Dionera\BeanstalkdUI\Repositories;
 
-use Pheanstalk\PheanstalkInterface;
-use Pheanstalk\Job as PheanstalkJob;
 use Dionera\BeanstalkdUI\Models\Job;
+use Pheanstalk\Job as PheanstalkJob;
 use Pheanstalk\Exception\ServerException;
+use Pheanstalk\Contract\PheanstalkInterface;
 
 class JobRepository
 {
@@ -85,9 +85,13 @@ class JobRepository
     private function next($type, $tube, $withStats = false)
     {
         try {
-            $method = 'peek'.ucfirst($type);
+            $method = 'peek' . ucfirst($type);
 
             $instance = $this->pheanstalk->{$method}($tube);
+
+            if ($instance === null) {
+                return null;
+            }
 
             if ($withStats) {
                 return new Job($instance, $this->getStats($instance));

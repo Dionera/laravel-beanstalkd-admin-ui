@@ -3,7 +3,7 @@
 namespace Dionera\BeanstalkdUI\Controllers;
 
 use Illuminate\Routing\Controller;
-use Pheanstalk\PheanstalkInterface;
+use Pheanstalk\Contract\PheanstalkInterface;
 use Dionera\BeanstalkdUI\Repositories\JobRepository;
 
 class TubesController extends Controller

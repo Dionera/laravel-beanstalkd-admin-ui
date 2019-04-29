@@ -1,10 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Dionera\BeanstalkdUI\Controllers\Api;
 
+use Pheanstalk\JobId;
 use Illuminate\Routing\Controller;
-use Pheanstalk\PheanstalkInterface;
 use Pheanstalk\Exception\ServerException;
+use Pheanstalk\Contract\PheanstalkInterface;
 
 class JobsController extends Controller
 {
@@ -31,7 +32,7 @@ class JobsController extends Controller
     public function delete($job)
     {
         try {
-            $instance = $this->pheanstalk->peek($job);
+            $instance = $this->pheanstalk->peek(new JobId($job));
 
             $this->pheanstalk->delete($instance);
 
@@ -55,7 +56,7 @@ class JobsController extends Controller
     public function kick($job)
     {
         try {
-            $instance = $this->pheanstalk->peek($job);
+            $instance = $this->pheanstalk->peek(new JobId($job));
 
             $this->pheanstalk->kickJob($instance);
 
