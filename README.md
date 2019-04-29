@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui/badges/gpa.svg)](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui)
 [![Build Status](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui.svg?branch=master)](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f/mini.png)](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f)
-[![Current Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://img.shields.io/badge/version-2.0.0-blue.svg)
+[![Current Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://img.shields.io/badge/version-2.0.0-blue.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![](preview.png)
