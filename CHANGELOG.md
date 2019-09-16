@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.2] - 2019-09-16
+### Changed
+- Views now get published as well when running `artisan vendor:publish`
+
 ## [2.0.1] - 2019-09-16
 ### Changed
 - Added support for Laravel ^6.0
@@ -90,3 +94,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 [0.2.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.1.1...0.2.0
 
 [0.1.1] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.1.0...0.1.1
+

@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui/badges/gpa.svg)](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui)
 [![Build Status](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui.svg?branch=master)](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f/mini.png)](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f)
-[![Current Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://img.shields.io/badge/version-2.0.0-blue.svg)
+[![Current Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://img.shields.io/badge/version-2.0.2-blue.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![](preview.png)
@@ -62,3 +62,4 @@ This will place a `beanstalkdui.php` in your application's `config` folder. Insi
 | `prefix` | '' | Route prefix that should be applied the Admin UI routes. |
 | `failed_jobs` | `true` | Defines if you want to be able to also manage your failed jobs through the UI. If set to `true` an additional table containing all failed jobs for the current tube will be displayed. |
 | `failed_jobs_table` | `failed_jobs` | The name of the table containing your failed jobs. |
+
