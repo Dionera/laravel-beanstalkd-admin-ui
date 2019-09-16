@@ -64,6 +64,10 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/Resources/config/beanstalkdui.php' => config_path('beanstalkdui.php'),
         ], 'config');
+
+        $this->publishes([
+            __DIR__.'/Resources/views' => resource_path('views/vendor/beanstalkdui'),
+        ]);
     }
 
     private function registerViewComposer()
