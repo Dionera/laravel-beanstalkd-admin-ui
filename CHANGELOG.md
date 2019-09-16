@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.1] - 2019-09-16
+### Changed
+- Added support for Laravel ^6.0
+
+## [2.0.0] - 2019-04-29
+### Changed
+- Added support for Laravel 5.8
+- Dropped support for Laravel versions older than 5.7.28
+
 ## [1.3.0] - 2018-07-17
 ### Added
 - Added extra column to failed jobs table containing the exception. (#11)
