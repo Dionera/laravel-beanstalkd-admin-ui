@@ -18,7 +18,7 @@ Require the package through composer
 composer require dionera/laravel-beanstalkd-ui
 ```
 
-**Note**: For Laravel versions older than `5.7.28` please install `dionera/laravel-beanstalkd-ui@~1.3.0`.
+**Note**: For Laravel versions older than `5.7.28` please install `dionera/laravel-beanstalkd-ui:~1.3.0`.
 
 ### Publish assets
 
