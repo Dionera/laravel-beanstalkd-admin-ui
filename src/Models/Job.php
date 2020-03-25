@@ -2,6 +2,7 @@
 
 namespace Dionera\BeanstalkdUI\Models;
 
+use Illuminate\Support\Arr;
 use Pheanstalk\Job as PheanstalkJob;
 use Illuminate\Contracts\Support\Jsonable;
 
@@ -58,7 +59,7 @@ class Job implements Jsonable
      */
     public function getStat($name)
     {
-        return array_get($this->stats, $name);
+        return Arr::get($this->stats, $name);
     }
 
     /**
