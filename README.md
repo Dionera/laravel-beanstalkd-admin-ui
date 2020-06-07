@@ -1,9 +1,7 @@
 # Laravel Beanstalkd Admin UI
 
 [![Code Climate](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui/badges/gpa.svg)](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui)
-[![Build Status](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui.svg?branch=master)](https://travis-ci.org/Dionera/laravel-beanstalkd-admin-ui)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f/mini.png)](https://insight.sensiolabs.com/projects/656659a9-5b94-453f-9780-f6b48c49f15f)
-[![Current Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://img.shields.io/badge/version-2.1.0-blue.svg)
+[![Current Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://img.shields.io/badge/version-3.0.0-blue.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![](preview.png)
@@ -18,7 +16,13 @@ Require the package through composer
 composer require dionera/laravel-beanstalkd-ui
 ```
 
-**Note**: For Laravel versions older than `5.7.28` please install `dionera/laravel-beanstalkd-ui:~1.3.0`.
+### Version Table
+
+| Laravel | PHP | Version |
+|:--------|:----|:--------|
+| `^5.7.28` | `^7.2` | `^2.0` |
+| `^6.0`, `^7.0` | `^7.2` | `^2.1` |
+| `^7.0` | `^7.4` | `^3.0` |
 
 ### Publish assets
 
