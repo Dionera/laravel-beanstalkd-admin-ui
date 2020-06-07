@@ -1,4 +1,0 @@
-suites:
-  library_suite:
-    namespace: Dionera\BeanstalkdUI
-    psr4_prefix: Dionera\BeanstalkdUI

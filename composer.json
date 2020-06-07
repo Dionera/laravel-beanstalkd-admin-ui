@@ -9,18 +9,21 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "laravel/framework": "^6.0 | ^7.0",
         "pda/pheanstalk": "^4.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "^6.0"
+        "phpunit/phpunit": "^9.2",
+        "pestphp/pest": "^0.1.5"
     },
     "autoload": {
         "psr-4": {
             "Dionera\\BeanstalkdUI\\": "src/"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [
