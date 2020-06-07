@@ -43,7 +43,9 @@ class JobRepository
         try {
             $method = 'peek' . ucfirst($type);
 
-            $instance = $this->pheanstalk->{$method}($tube);
+            $instance = $this->pheanstalk
+                ->useTube($tube)
+                ->{$method}($tube);
 
             if ($instance === null) {
                 return null;

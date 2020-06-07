@@ -11,7 +11,8 @@
     "require": {
         "php": "^7.4",
         "laravel/framework": "^6.0 | ^7.0",
-        "pda/pheanstalk": "^4.0"
+        "pda/pheanstalk": "^4.0",
+        "mockery/mockery": "^1.4"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.2",
