@@ -10,8 +10,7 @@ use Pheanstalk\Contract\PheanstalkInterface;
 
 class JobRepository
 {
-    /** @var PheanstalkInterface */
-    private $pheanstalk;
+    private PheanstalkInterface $pheanstalk;
 
     public function __construct(PheanstalkInterface $pheanstalk)
     {

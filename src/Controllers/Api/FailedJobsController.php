@@ -2,10 +2,10 @@
 
 namespace Dionera\BeanstalkdUI\Controllers\Api;
 
-use DB;
-use Artisan;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
 
 class FailedJobsController extends Controller
 {

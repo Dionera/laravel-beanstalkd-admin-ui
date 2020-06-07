@@ -3,16 +3,14 @@
 namespace Dionera\BeanstalkdUI\Controllers\Api;
 
 use Pheanstalk\JobId;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 use Pheanstalk\Exception\ServerException;
 use Pheanstalk\Contract\PheanstalkInterface;
 
 class JobsController extends Controller
 {
-    /**
-     * @var PheanstalkInterface
-     */
-    private $pheanstalk;
+    private PheanstalkInterface $pheanstalk;
 
     /**
      * JobsController constructor.
@@ -24,12 +22,7 @@ class JobsController extends Controller
         $this->pheanstalk = $pheanstalk;
     }
 
-    /**
-     * @param $job
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function delete(int $job)
+    public function delete(int $job): JsonResponse
     {
         try {
             $instance = $this->pheanstalk->peek(new JobId($job));
@@ -48,12 +41,7 @@ class JobsController extends Controller
         }
     }
 
-    /**
-     * @param $job
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function kick(int $job)
+    public function kick(int $job): JsonResponse
     {
         try {
             $instance = $this->pheanstalk->peek(new JobId($job));

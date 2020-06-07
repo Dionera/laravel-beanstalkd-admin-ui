@@ -1,74 +1,38 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Dionera\BeanstalkdUI\Models;
 
 use Illuminate\Support\Arr;
 use Pheanstalk\Job as PheanstalkJob;
 use Illuminate\Contracts\Support\Jsonable;
+use Pheanstalk\Contract\ResponseInterface;
 
 class Job implements Jsonable
 {
-    /**
-     * @var PheanstalkJob
-     */
-    private $job;
+    private PheanstalkJob $job;
+    private ?ResponseInterface $stats;
 
-    /**
-     * @var object
-     */
-    private $stats;
-
-    /**
-     * Job constructor.
-     *
-     * @param PheanstalkJob $job
-     * @param object        $stats
-     */
-    public function __construct(PheanstalkJob $job, $stats = null)
+    public function __construct(PheanstalkJob $job, ?ResponseInterface $stats = null)
     {
         $this->job = $job;
         $this->stats = $stats;
     }
 
-    /**
-     * Returns the underlying job's id.
-     *
-     * @return int
-     */
-    public function getId()
+    public function getId(): int
     {
         return $this->job->getId();
     }
 
-    /**
-     * Returns the underlying job's data.
-     *
-     * @return string
-     */
-    public function getData()
+    public function getData(): string
     {
         return $this->job->getData();
     }
 
-    /**
-     * Returns a specific stat for the underlying job.
-     *
-     * @param string $name
-     *
-     * @return mixed
-     */
-    public function getStat($name)
+    public function getStat(string $name)
     {
         return Arr::get($this->stats, $name);
     }
 
-    /**
-     * Convert the object to its JSON representation.
-     *
-     * @param int $options
-     *
-     * @return string
-     */
     public function toJson($options = 0)
     {
         return [

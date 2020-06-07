@@ -9,14 +9,9 @@ use Dionera\BeanstalkdUI\Repositories\JobRepository;
 
 class StatsController extends Controller
 {
-    /**
-     * @var JobRepository
-     */
-    private $jobs;
-    /**
-     * @var PheanstalkInterface
-     */
-    private $pheanstalk;
+    private JobRepository $jobs;
+
+    private PheanstalkInterface $pheanstalk;
 
     public function __construct(PheanstalkInterface $pheanstalk, JobRepository $jobs)
     {
