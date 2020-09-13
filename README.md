@@ -1,7 +1,7 @@
 # Laravel Beanstalkd Admin UI
 
 [![Code Climate](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui/badges/gpa.svg)](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui)
-[![Current Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://img.shields.io/badge/version-3.0.0-blue.svg)
+[![Current Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://img.shields.io/badge/version-3.1.0-blue.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![](preview.png)
