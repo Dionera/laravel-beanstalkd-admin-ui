@@ -18,11 +18,12 @@ composer require dionera/laravel-beanstalkd-ui
 
 ### Version Table
 
-| Laravel | PHP | Version |
+| Laravel | Required PHP Version | Package Version |
 |:--------|:----|:--------|
 | `^5.7.28` | `^7.2` | `^2.0` |
 | `^6.0`, `^7.0` | `^7.2` | `^2.1` |
 | `^7.0` | `^7.4` | `^3.0` |
+| `^8.0` | `^7.4` | `^3.1` |
 
 ### Publish assets
 
@@ -38,11 +39,6 @@ This will publish all the required Javascript and CSS into your applications `pu
 
 Now navigate to `http://<your-app>/beanstalkd/tubes` in your browser. If you're not already authenticated you will now be asked to log in. This is because by
 default all routes use the `auth` middleware. See the [Configuration](#configuration) section for information about how to overwrite this.
-
-## Older versions of PHP and Laravel
-
-If you're not on PHP 7 or Laravel 5.5 yet, please check out the [legacy branch](https://github.com/Dionera/laravel-beanstalkd-admin-ui/tree/php5). No new features will be added
-to this branch. Bugfixes will still get backported.
 
 ## Live Updating
 

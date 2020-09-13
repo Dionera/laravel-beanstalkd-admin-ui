@@ -15,22 +15,22 @@ beforeEach(function () {
 });
 
 it('provides access to the underlying job id', function () {
-    assertEquals(1, $this->job->getId());
+    $this->assertEquals(1, $this->job->getId());
 });
 
 it("provides access to the underlying job's data", function () {
-    assertEquals('::data::', $this->job->getData());
+    $this->assertEquals('::data::', $this->job->getData());
 });
 
 it("provides access to the underlying job's stats", function (string $stat, int $expected) {
-    assertEquals($expected, $this->job->getStat($stat));
+    $this->assertEquals($expected, $this->job->getStat($stat));
 })->with([
     ['age', 300],
     ['time-left', 120],
 ]);
 
 it('is jsonable', function () {
-    assertEquals([
+    $this->assertEquals([
         'id' => 1,
         'data' => '::data::',
         'stats' => new ArrayResponse('OK', [
