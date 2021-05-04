@@ -29,9 +29,7 @@ new Vue({
 
     methods: {
         prefixUrl: function (url){
-            return this.prefix.length > 0
-                ? '/' + this.prefix + url
-                : url
+            return this.prefix + url;
         },
         fetchData: function () {
             $.get(this.prefixUrl('/beanstalkd/api/tubes/' + this.tube), function (response) {

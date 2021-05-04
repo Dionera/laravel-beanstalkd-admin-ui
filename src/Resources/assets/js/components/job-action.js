@@ -19,7 +19,8 @@ var JobAction = Vue.extend({
         fire: function () {
             $.ajax({
                 url: this.prefixUrl(this.url + this.job.id),
-                type: this.method,
+                type: 'POST',
+                data :{'_method':this.method},
                 success: function (response) {
                     this.$dispatch('notify', response);
                 }.bind(this)
