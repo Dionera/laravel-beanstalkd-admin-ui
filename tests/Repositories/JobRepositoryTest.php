@@ -17,14 +17,18 @@ it('fetches the next ready job from the tube', function () {
     $this->mockPheanstalk->expects('useTube')->with('::tube::')->once()->andReturnSelf();
     $this->mockPheanstalk->allows('peekReady')->andReturns($job);
 
-    $this->assertEquals(new Job($job), $this->repository->nextReady('::tube::'));
+    expect($this->repository)
+        ->nextReady('::tube::')
+        ->toEqual(new Job($job));
 });
 
 it('returns null if no ready job exists', function () {
     $this->mockPheanstalk->expects('useTube')->with('::tube::')->once()->andReturnSelf();
     $this->mockPheanstalk->allows('peekReady')->andReturns(null);
 
-    $this->assertNull($this->repository->nextReady('::tube::'));
+    expect($this->repository)
+        ->nextReady('::tube::')
+        ->toBeNull();
 });
 
 it('fetches the next delayed job from the tube', function () {
@@ -32,14 +36,18 @@ it('fetches the next delayed job from the tube', function () {
     $this->mockPheanstalk->expects('useTube')->with('::tube::')->once()->andReturnSelf();
     $this->mockPheanstalk->allows('peekDelayed')->andReturns($job);
 
-    $this->assertEquals(new Job($job), $this->repository->nextDelayed('::tube::'));
+    expect($this->repository)
+        ->nextDelayed('::tube::')
+        ->toEqual(new Job($job));
 });
 
 it('returns null if no delayed job exists', function () {
     $this->mockPheanstalk->expects('useTube')->with('::tube::')->once()->andReturnSelf();
     $this->mockPheanstalk->allows('peekDelayed')->andReturns(null);
 
-    $this->assertNull($this->repository->nextDelayed('::tube::'));
+    expect($this->repository)
+        ->nextDelayed('::tube::')
+        ->toBeNull();
 });
 
 it('fetches the stats for a tube', function () {
@@ -50,7 +58,9 @@ it('fetches the stats for a tube', function () {
         ->with($job)
         ->andReturns($expectedResponse);
 
-    $this->assertEquals($expectedResponse, $this->repository->getStats($job));
+    expect($this->repository)
+        ->getStats($job)
+        ->toEqual($expectedResponse);
 });
 
 it('fetches the job as well as the job stats', function (string $method) {
@@ -61,7 +71,9 @@ it('fetches the job as well as the job stats', function (string $method) {
     $this->mockPheanstalk->allows('statsJob')->with($job)->andReturns($stats);
 
     $method = 'next' . $method;
-    $this->assertEquals(new Job($job, $stats), $this->repository->{$method}('::tube::', true));
+    expect($this->repository)
+        ->{$method}('::tube::', true)
+        ->toEqual(new Job($job, $stats));
 })->with([
     ['Ready'],
     ['Delayed'],
