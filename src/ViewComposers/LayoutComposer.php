@@ -7,27 +7,14 @@ use Pheanstalk\Contract\PheanstalkInterface;
 
 class LayoutComposer
 {
-    /**
-     * @var PheanstalkInterface
-     */
-    private $pheanstalk;
+    private PheanstalkInterface $pheanstalk;
 
-    /**
-     * LayoutComposer constructor.
-     *
-     * @param PheanstalkInterface $pheanstalk
-     */
     public function __construct(PheanstalkInterface $pheanstalk)
     {
         $this->pheanstalk = $pheanstalk;
     }
 
-    /**
-     * Bind data to the view.
-     *
-     * @param View $view
-     */
-    public function compose(View $view)
+    public function compose(View $view): void
     {
         $view->with('tubes', $this->pheanstalk->listTubes());
     }

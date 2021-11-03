@@ -10,10 +10,7 @@ use Dionera\BeanstalkdUI\ViewComposers\LayoutComposer;
 
 class BeanstalkdUIServiceProvider extends ServiceProvider
 {
-    /**
-     * Register the service provider.
-     */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/Resources/config/beanstalkdui.php', 'beanstalkdui');
 
@@ -25,12 +22,7 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Perform post-registration booting of services.
-     *
-     * @param Router $router
-     */
-    public function boot(Router $router)
+    public function boot(Router $router): void
     {
         $this->publishAssets();
         $this->registerRoutes($router);
@@ -38,22 +30,19 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
         $this->registerViewComposer();
     }
 
-    /**
-     * @param Router $router
-     */
-    private function registerRoutes(Router $router)
+    private function registerRoutes(Router $router): void
     {
         if (!$this->app->routesAreCached()) {
             $router->group([
                 'middleware' => config('beanstalkdui.middleware'),
                 'prefix' => config('beanstalkdui.prefix')
-            ], function ($router) {
+            ], function () {
                 require __DIR__.'/routes.php';
             });
         }
     }
 
-    private function publishAssets()
+    private function publishAssets(): void
     {
         $this->publishes([
             __DIR__.'/Resources/assets/css' => public_path('vendor/beanstalkdui/css'),
@@ -70,7 +59,7 @@ class BeanstalkdUIServiceProvider extends ServiceProvider
         ]);
     }
 
-    private function registerViewComposer()
+    private function registerViewComposer(): void
     {
         view()->composer('beanstalkdui::partials.sidenav', LayoutComposer::class);
     }
