@@ -9,14 +9,8 @@ use Dionera\BeanstalkdUI\Repositories\JobRepository;
 
 class TubesController extends Controller
 {
-    /**
-     * @var Pheanstalk
-     */
-    private $pheanstalk;
-    /**
-     * @var JobRepository
-     */
-    private $jobs;
+    private PheanstalkInterface $pheanstalk;
+    private JobRepository $jobs;
 
     public function __construct(PheanstalkInterface $pheanstalk, JobRepository $jobs)
     {

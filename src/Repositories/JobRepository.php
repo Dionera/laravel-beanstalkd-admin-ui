@@ -56,7 +56,7 @@ class JobRepository
 
             return new Job($instance);
         } catch (ServerException $e) {
-            //
+            return null;
         }
     }
 }
