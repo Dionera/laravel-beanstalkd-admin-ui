@@ -16,7 +16,7 @@
     "require-dev": {
         "ergebnis/composer-normalize": "^2.15",
         "mockery/mockery": "^1.4",
-        "pestphp/pest": "^0.3.2",
+        "pestphp/pest": "^1.0",
         "phpunit/phpunit": "^9.2"
     },
     "extra": {
