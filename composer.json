@@ -9,14 +9,22 @@
         }
     ],
     "require": {
-        "php": "^7.4 | ^8.0",
-        "laravel/framework": "^7.30.3 | ^8.22.1",
+        "php": "^7.4 || ^8.0",
+        "laravel/framework": "^7.30.3 || ^8.22.1",
         "pda/pheanstalk": "^4.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.2",
+        "ergebnis/composer-normalize": "^2.15",
+        "mockery/mockery": "^1.4",
         "pestphp/pest": "^0.3.2",
-        "mockery/mockery": "^1.4"
+        "phpunit/phpunit": "^9.2"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dionera\\BeanstalkdUI\\BeanstalkdUIServiceProvider"
+            ]
+        }
     },
     "autoload": {
         "psr-4": {
@@ -25,11 +33,12 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Dionera\\BeanstalkdUI\\BeanstalkdUIServiceProvider"
-            ]
-        }
+    "scripts": {
+        "post-install-cmd": [
+            "@composer normalize"
+        ],
+        "post-update-cmd": [
+            "@composer normalize"
+        ]
     }
 }
