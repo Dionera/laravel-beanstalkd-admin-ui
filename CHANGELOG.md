@@ -2,6 +2,29 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.0.0] - 2021-11-03
+### Added
+- Added support for PHP 8
+
+### Changed
+- Dropped support for Laravel 7
+
+## [3.1.1] - 2020-09-13
+### Changed
+- Added minimum version for `laravel/framework` dependency
+
+## [3.1.0] - 2020-09-13
+### Changed
+- Added support for Laravel 8
+
+
+## [3.0.0] - 2020-06-07
+### Changed 
+- Replace `phpspec/phpspec` with `pestphp/pest`
+- Add typed properties where possible
+- Drop support for Laravel 6
+- Drop support for PHP 7.3
+
 ## [2.0.2] - 2019-09-16
 ### Changed
 - Views now get published as well when running `artisan vendor:publish`
@@ -77,21 +100,23 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Add missing `web` middleware to default configuration
 
+[4.0.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/3.1.1...4.0.0
+[3.1.1] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/3.1.0...3.1.1
+[3.1.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/3.0.0...3.1.0
+[3.0.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/2.0.2...3.0.0
+[2.0.2] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/2.0.1...2.0.2
+[2.0.1] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/2.0.0...2.0.1
+[2.0.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/1.3.0...2.0.0
+[1.3.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/1.2.0...1.3.0
+[1.2.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/1.1.0...1.2.0
+[1.1.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/1.0.0...1.1.0
+[1.0.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.4...1.0.0
 [0.3.4] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.3...0.3.4
-
 [0.3.3] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.2...0.3.3
-
 [0.3.2] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.1...0.3.2
-
 [0.3.1] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.3.0...0.3.1
-
 [0.3.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.2.2...0.3.0
-
 [0.2.2] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.2.1...0.2.2
-
 [0.2.1] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.2.0...0.2.1
-
 [0.2.0] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.1.1...0.2.0
-
 [0.1.1] https://github.com/Dionera/laravel-beanstalkd-admin-ui/compare/0.1.0...0.1.1
-
