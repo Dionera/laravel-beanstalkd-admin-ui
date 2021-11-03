@@ -1,7 +1,7 @@
 # Laravel Beanstalkd Admin UI
 
 [![Code Climate](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui/badges/gpa.svg)](https://codeclimate.com/github/ksassnowski/laravel-beanstalkd-admin-ui)
-[![Current Version](https://img.shields.io/badge/version-3.1.0-blue.svg)](https://img.shields.io/badge/version-3.1.0-blue.svg)
+[![Current Version](https://img.shields.io/badge/version-4.0.0-blue.svg)](https://img.shields.io/badge/version-4.0.0-blue.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![](preview.png)
@@ -24,6 +24,7 @@ composer require dionera/laravel-beanstalkd-ui
 | `^6.0`, `^7.0` | `^7.2` | `^2.1` |
 | `^7.0` | `^7.4` | `^3.0` |
 | `^7.0`, `^8.0` | `^7.4` | `^3.1` |
+| `^8.0` | `^7.4|^8.0` | `^4.0` |
 
 ### Publish assets
 
