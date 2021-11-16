@@ -17,7 +17,7 @@
         "ergebnis/composer-normalize": "^2.15",
         "mockery/mockery": "^1.4",
         "pestphp/pest": "^1.20",
-        "phpunit/phpunit": "^9.2",
+        "phpunit/phpunit": "^9.5.8",
         "roave/security-advisories": "dev-latest"
     },
     "extra": {
