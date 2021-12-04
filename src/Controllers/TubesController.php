@@ -20,7 +20,10 @@ class TubesController extends Controller
 
     public function index(): View
     {
-        $tubeNames = collect($this->pheanstalk->listTubes());
+        $tubeNames = $this->pheanstalk->listTubes();
+        
+        // its better if tubes sorted by alphabet so we can find them faster
+        sort($tubeNames);
 
         // Adam Wathan give me your strength!
         $tubes = collect($tubeNames)->map(function ($tube) {
@@ -39,7 +42,7 @@ class TubesController extends Controller
         $nextReady = $this->jobs->nextReady($tube, true);
         $nextBuried = $this->jobs->nextBuried($tube);
         $nextDelayed = $this->jobs->nextDelayed($tube, true);
-        $prefix = config('beanstalkdui.prefix');
+        $prefix = url()->to('/'.config('beanstalkdui.prefix'));
 
         return view('beanstalkdui::tubes.show', compact(
             'nextReady',
