@@ -9,8 +9,8 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
-        "laravel/framework": "^8.40.0",
+        "php": "^8.0",
+        "laravel/framework": "^9.0",
         "pda/pheanstalk": "^4.0"
     },
     "require-dev": {
@@ -20,6 +20,19 @@
         "phpunit/phpunit": "^9.5.8",
         "roave/security-advisories": "dev-latest"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Dionera\\BeanstalkdUI\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "ergebnis/composer-normalize": true
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -27,13 +40,6 @@
             ]
         }
     },
-    "autoload": {
-        "psr-4": {
-            "Dionera\\BeanstalkdUI\\": "src/"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
             "@composer normalize"
